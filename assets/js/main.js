@@ -172,3 +172,44 @@ playBtnEl.addEventListener('click', function () {
         })
     }, 3000);
 })
+
+const reverseBtnEl = document.getElementById('reverse');
+reverseBtnEl.addEventListener('click', function () {
+    reverseBtnEl.classList.toggle('d-none')
+    playBtnEl.classList.toggle('d-none')
+    pauseBtnEl.classList.toggle('d-none')
+
+    const reverseInterval = setInterval(() => {
+        let actualImg = allImgs[activeImg];
+        let actualTitle = allTitleImgs[activeImg];
+        let actualText = allTextImgs[activeImg];
+        let actualThumb = allThumbnailsEl[activeImg];
+
+        activeImg--;
+        actualImg.classList.remove('active');
+        actualTitle.classList.remove('active');
+        actualText.classList.remove('active');
+        actualThumb.classList.remove('active_thumb')
+
+        if (activeImg < 0) {
+            activeImg = (allImgs.length - 1);
+        }
+
+        let nextImg = allImgs[activeImg];
+        let nextTitle = allTitleImgs[activeImg];
+        let nextText = allTextImgs[activeImg];
+        let nextThumb = allThumbnailsEl[activeImg];
+
+        nextImg.classList.add('active');
+        nextTitle.classList.add('active');
+        nextText.classList.add('active');
+        nextThumb.classList.add('active_thumb')
+
+        pauseBtnEl.addEventListener('click', function () {
+            reverseBtnEl.classList.toggle('d-none')
+            playBtnEl.classList.toggle('d-none')
+            pauseBtnEl.classList.toggle('d-none')
+            clearInterval(reverseInterval)
+        })
+    }, 3000);
+})

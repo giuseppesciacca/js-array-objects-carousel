@@ -14,10 +14,21 @@ img.jumbo_el {
     z-index: 1;
 }
 
-#play,
+#play {
+    bottom: 2%;
+    left: 55%;
+    z-index: 1;
+}
+
 #pause {
     bottom: 2%;
     left: 50%;
+    z-index: 1;
+}
+
+#reverse {
+    bottom: 2%;
+    left: 45%;
     z-index: 1;
 }
 
