@@ -25,8 +25,7 @@ const images = [
 const imageDomEl = document.querySelector('.image');
 const cardEl = document.querySelector('.card-body');
 const prevBtnEl = document.getElementById('prev');
-const nextBtnEl = document.getElementById('next');
-console.log(nextBtnEl);
+
 
 let activeImg = 0;
 
@@ -40,6 +39,20 @@ images.forEach((element, i) => {
     cardEl.innerHTML = markUpCardBody;
 });
 
-nextBtnEl.addEventListener('click', function () { 
-    console.log('click');
+const allImgs = document.querySelectorAll('img')
+const nextBtnEl = document.getElementById('next');
+
+nextBtnEl.addEventListener('click', function () {
+    let actualImg = allImgs[activeImg];
+    activeImg++
+    actualImg.classList.remove('active');
+
+    if (activeImg > images.length - 1) {
+        activeImg = 0;
+    }
+
+    let nextImg = allImgs[activeImg];
+    nextImg.classList.add('active');
+
+    console.log(activeImg);
 })
