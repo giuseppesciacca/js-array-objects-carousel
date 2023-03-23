@@ -55,10 +55,7 @@ allThumbnailsEl.forEach((element, i) => {
         let actualText = allTextImgs[activeImg];
         let actualThumb = allThumbnailsEl[activeImg];
 
-        actualImg.classList.remove('active');
-        actualTitle.classList.remove('active');
-        actualText.classList.remove('active');
-        actualThumb.classList.remove('active_thumb')
+        removeClassActive(actualImg, actualTitle, actualText, actualThumb);
 
         activeImg = i;
 
@@ -67,10 +64,7 @@ allThumbnailsEl.forEach((element, i) => {
         let nextText = allTextImgs[activeImg];
         let nextThumb = allThumbnailsEl[activeImg];
 
-        nextImg.classList.add('active');
-        nextTitle.classList.add('active');
-        nextText.classList.add('active');
-        nextThumb.classList.add('active_thumb')
+        addClassActive(nextImg, nextTitle, nextText, nextThumb);
     })
 })
 
@@ -82,10 +76,7 @@ nextBtnEl.addEventListener('click', function () {
     let actualThumb = allThumbnailsEl[activeImg];
 
     activeImg++;
-    actualImg.classList.remove('active');
-    actualTitle.classList.remove('active');
-    actualText.classList.remove('active');
-    actualThumb.classList.remove('active_thumb')
+    removeClassActive(actualImg, actualTitle, actualText, actualThumb);
 
     if (activeImg > images.length - 1) {
         activeImg = 0;
@@ -96,10 +87,7 @@ nextBtnEl.addEventListener('click', function () {
     let nextText = allTextImgs[activeImg];
     let nextThumb = allThumbnailsEl[activeImg];
 
-    nextImg.classList.add('active');
-    nextTitle.classList.add('active');
-    nextText.classList.add('active');
-    nextThumb.classList.add('active_thumb')
+    addClassActive(nextImg, nextTitle, nextText, nextThumb);
 
     //console.log(activeImg);
 })
@@ -112,10 +100,7 @@ prevBtnEl.addEventListener('click', function () {
     let actualThumb = allThumbnailsEl[activeImg];
 
     activeImg--;
-    actualImg.classList.remove('active');
-    actualTitle.classList.remove('active');
-    actualText.classList.remove('active');
-    actualThumb.classList.remove('active_thumb')
+    removeClassActive(actualImg, actualTitle, actualText, actualThumb);
 
     if (activeImg < 0) {
         activeImg = (allImgs.length - 1);
@@ -126,10 +111,7 @@ prevBtnEl.addEventListener('click', function () {
     let nextText = allTextImgs[activeImg];
     let nextThumb = allThumbnailsEl[activeImg];
 
-    nextImg.classList.add('active');
-    nextTitle.classList.add('active');
-    nextText.classList.add('active');
-    nextThumb.classList.add('active_thumb')
+    addClassActive(nextImg, nextTitle, nextText, nextThumb);
 
     //console.log(activeImg);
 })
@@ -146,10 +128,7 @@ playBtnEl.addEventListener('click', function () {
         let actualThumb = allThumbnailsEl[activeImg];
 
         activeImg++;
-        actualImg.classList.remove('active');
-        actualTitle.classList.remove('active');
-        actualText.classList.remove('active');
-        actualThumb.classList.remove('active_thumb')
+        removeClassActive(actualImg, actualTitle, actualText, actualThumb);
 
         if (activeImg > images.length - 1) {
             activeImg = 0;
@@ -160,10 +139,7 @@ playBtnEl.addEventListener('click', function () {
         let nextText = allTextImgs[activeImg];
         let nextThumb = allThumbnailsEl[activeImg];
 
-        nextImg.classList.add('active');
-        nextTitle.classList.add('active');
-        nextText.classList.add('active');
-        nextThumb.classList.add('active_thumb')
+        addClassActive(nextImg, nextTitle, nextText, nextThumb);
 
         pauseBtnEl.addEventListener('click', function () {
             playBtnEl.classList.toggle('d-none')
@@ -186,10 +162,7 @@ reverseBtnEl.addEventListener('click', function () {
         let actualThumb = allThumbnailsEl[activeImg];
 
         activeImg--;
-        actualImg.classList.remove('active');
-        actualTitle.classList.remove('active');
-        actualText.classList.remove('active');
-        actualThumb.classList.remove('active_thumb')
+        removeClassActive(actualImg, actualTitle, actualText, actualThumb);
 
         if (activeImg < 0) {
             activeImg = (allImgs.length - 1);
@@ -200,10 +173,7 @@ reverseBtnEl.addEventListener('click', function () {
         let nextText = allTextImgs[activeImg];
         let nextThumb = allThumbnailsEl[activeImg];
 
-        nextImg.classList.add('active');
-        nextTitle.classList.add('active');
-        nextText.classList.add('active');
-        nextThumb.classList.add('active_thumb')
+        addClassActive(nextImg, nextTitle, nextText, nextThumb);
 
         pauseBtnEl.addEventListener('click', function () {
             reverseBtnEl.classList.toggle('d-none')
@@ -213,3 +183,19 @@ reverseBtnEl.addEventListener('click', function () {
         })
     }, 3000);
 })
+
+
+/* FUNCTIONS */
+function removeClassActive(actualImg, actualTitle, actualText, actualThumb) {
+    actualImg.classList.remove('active');
+    actualTitle.classList.remove('active');
+    actualText.classList.remove('active');
+    actualThumb.classList.remove('active_thumb')
+}
+
+function addClassActive(nextImg, nextTitle, nextText, nextThumb) {
+    nextImg.classList.add('active');
+    nextTitle.classList.add('active');
+    nextText.classList.add('active');
+    nextThumb.classList.add('active_thumb')
+}
