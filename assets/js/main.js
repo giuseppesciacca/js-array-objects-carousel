@@ -116,11 +116,12 @@ prevBtnEl.addEventListener('click', function () {
     //console.log(activeImg);
 })
 
-const playBtnEl = document.getElementById('play');
+const reverseBtnEl = document.getElementById('reverse');
 const pauseBtnEl = document.getElementById('pause');
+const playBtnEl = document.getElementById('play');
 playBtnEl.addEventListener('click', function () {
-    playBtnEl.classList.toggle('d-none')
-    pauseBtnEl.classList.toggle('d-none')
+    toggleClassDNone()
+
     const playInterval = setInterval(() => {
         let actualImg = allImgs[activeImg];
         let actualTitle = allTitleImgs[activeImg];
@@ -142,18 +143,13 @@ playBtnEl.addEventListener('click', function () {
         addClassActive(nextImg, nextTitle, nextText, nextThumb);
 
         pauseBtnEl.addEventListener('click', function () {
-            playBtnEl.classList.toggle('d-none')
-            pauseBtnEl.classList.toggle('d-none')
             clearInterval(playInterval)
         })
     }, 3000);
 })
 
-const reverseBtnEl = document.getElementById('reverse');
 reverseBtnEl.addEventListener('click', function () {
-    reverseBtnEl.classList.toggle('d-none')
-    playBtnEl.classList.toggle('d-none')
-    pauseBtnEl.classList.toggle('d-none')
+    toggleClassDNone()
 
     const reverseInterval = setInterval(() => {
         let actualImg = allImgs[activeImg];
@@ -176,14 +172,14 @@ reverseBtnEl.addEventListener('click', function () {
         addClassActive(nextImg, nextTitle, nextText, nextThumb);
 
         pauseBtnEl.addEventListener('click', function () {
-            reverseBtnEl.classList.toggle('d-none')
-            playBtnEl.classList.toggle('d-none')
-            pauseBtnEl.classList.toggle('d-none')
             clearInterval(reverseInterval)
         })
     }, 3000);
 })
 
+pauseBtnEl.addEventListener('click', function () {
+    toggleClassDNone()
+})
 
 /* FUNCTIONS */
 function removeClassActive(actualImg, actualTitle, actualText, actualThumb) {
@@ -198,4 +194,10 @@ function addClassActive(nextImg, nextTitle, nextText, nextThumb) {
     nextTitle.classList.add('active');
     nextText.classList.add('active');
     nextThumb.classList.add('active_thumb')
+}
+
+function toggleClassDNone() {
+    reverseBtnEl.classList.toggle('d-none')
+    playBtnEl.classList.toggle('d-none')
+    pauseBtnEl.classList.toggle('d-none')
 }
