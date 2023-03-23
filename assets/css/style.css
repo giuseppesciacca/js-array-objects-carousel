@@ -4,9 +4,7 @@ img {
     object-fit: cover;
 }
 
-img:not(.active),
-h5:not(.active),
-p:not(.active) {
+.jumbo_el:not(.active) {
     display: none;
 }
 
@@ -18,4 +16,13 @@ p:not(.active) {
 #next {
     top: 50%;
     right: 2%;
+}
+
+#thumbnails .row {
+    bottom: 0;
+    left: 0;
+}
+
+#thumbnails img {
+    max-height: 120px;
 }

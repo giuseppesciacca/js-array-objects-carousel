@@ -24,17 +24,28 @@ const images = [
 
 const imageDomEl = document.querySelector('.image');
 const cardEl = document.querySelector('.card-body');
+const thumbnailsEl = document.getElementById('thumbnails');
 
 let activeImg = 0;
 
 images.forEach((element, i) => {
-    const markUpImg = `<img class="${i === activeImg ? 'active' : ''}" src="./assets/${element.image}" alt="${element.title}">`;
+    const markUpImg = `<img class="jumbo_el ${i === activeImg ? 'active' : ''}" src="./assets/${element.image}" alt="${element.title}">`;
     const markUpCardBody = `
-                    <h5 class="card-title ${i === activeImg ? 'active' : ''}">${element.title}</h5>
-                    <p class="card-text ${i === activeImg ? 'active' : ''}">${element.text}</p>
+                    <h5 class="jumbo_el card-title ${i === activeImg ? 'active' : ''}">${element.title}</h5>
+                    <p class="jumbo_el card-text ${i === activeImg ? 'active' : ''}">${element.text}</p>
                 <!-- /.card-body -->`;
+    const thumbsImgMarkUp = `                        
+                        <div class="container">
+                            <div class="row position-absolute flex-column">
+                                <div class="col-5">
+                                    <img src="./assets/${element.image}" alt="${element.title}">
+                                </div>
+                            </div>
+                        </div>`;
     imageDomEl.innerHTML += markUpImg;
     cardEl.innerHTML += markUpCardBody;
+    thumbnailsEl.innerHTML += thumbsImgMarkUp;
+    console.log(thumbnailsEl.innerHTML += thumbsImgMarkUp);
 });
 
 const allImgs = document.querySelectorAll('img');
