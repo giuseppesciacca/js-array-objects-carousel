@@ -4,9 +4,9 @@ img {
     object-fit: cover;
 }
 
-/* img:not(.active) {
+img:not(.active) {
     display: none;
-} */
+}
 
 #prev {
     top: 50%;
