@@ -24,8 +24,6 @@ const images = [
 
 const imageDomEl = document.querySelector('.image');
 const cardEl = document.querySelector('.card-body');
-const prevBtnEl = document.getElementById('prev');
-
 
 let activeImg = 0;
 
@@ -40,8 +38,8 @@ images.forEach((element, i) => {
 });
 
 const allImgs = document.querySelectorAll('img')
-const nextBtnEl = document.getElementById('next');
 
+const nextBtnEl = document.getElementById('next');
 nextBtnEl.addEventListener('click', function () {
     let actualImg = allImgs[activeImg];
     activeImg++
@@ -54,5 +52,21 @@ nextBtnEl.addEventListener('click', function () {
     let nextImg = allImgs[activeImg];
     nextImg.classList.add('active');
 
-    console.log(activeImg);
+    //console.log(activeImg);
+})
+
+const prevBtnEl = document.getElementById('prev');
+prevBtnEl.addEventListener('click', function () {
+    let actualImg = allImgs[activeImg];
+    activeImg--
+    actualImg.classList.remove('active');
+
+    if (activeImg < 0) {
+        activeImg = (allImgs.length - 1);
+    }
+
+    let nextImg = allImgs[activeImg];
+    nextImg.classList.add('active');
+
+    //console.log(activeImg);
 })
