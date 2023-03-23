@@ -4,12 +4,16 @@ img {
     object-fit: cover;
 }
 
+/* img:not(.active) {
+    display: none;
+} */
+
 #prev {
-    top: 2%;
-    left: 50%;
+    top: 50%;
+    left: 2%;
 }
 
 #next {
-    bottom: 2%;
-    left: 50%;
+    top: 50%;
+    right: 2%;
 }
