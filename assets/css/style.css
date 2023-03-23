@@ -58,3 +58,21 @@ img.jumbo_el {
 .active_thumb {
     opacity: 1 !important;
 }
+
+@media screen and (max-width: 991.98px) {
+    #thumbnails img {
+        display: none;
+    }
+
+    #reverse {
+        bottom: 2%;
+        left: 40%;
+        z-index: 1;
+    }
+
+    #play {
+        bottom: 2%;
+        left: 60%;
+        z-index: 1;
+    }
+}
