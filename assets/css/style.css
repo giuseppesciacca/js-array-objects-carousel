@@ -14,7 +14,8 @@ img.jumbo_el {
     z-index: 1;
 }
 
-#play {
+#play,
+#pause {
     bottom: 2%;
     left: 50%;
 }

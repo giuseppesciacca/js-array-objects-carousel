@@ -134,10 +134,12 @@ prevBtnEl.addEventListener('click', function () {
     //console.log(activeImg);
 })
 
-const playBtnEl = document.getElementById('play')
+const playBtnEl = document.getElementById('play');
+const pauseBtnEl = document.getElementById('pause');
 playBtnEl.addEventListener('click', function () {
-    console.log('click');
-    setInterval(() => {
+    playBtnEl.classList.toggle('d-none')
+    pauseBtnEl.classList.toggle('d-none')
+    const playInterval = setInterval(() => {
         let actualImg = allImgs[activeImg];
         let actualTitle = allTitleImgs[activeImg];
         let actualText = allTextImgs[activeImg];
@@ -163,5 +165,10 @@ playBtnEl.addEventListener('click', function () {
         nextText.classList.add('active');
         nextThumb.classList.add('active_thumb')
 
+        pauseBtnEl.addEventListener('click', function () {
+            playBtnEl.classList.toggle('d-none')
+            pauseBtnEl.classList.toggle('d-none')
+            clearInterval(playInterval)
+        })
     }, 3000);
 })
