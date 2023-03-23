@@ -28,29 +28,40 @@ const cardEl = document.querySelector('.card-body');
 let activeImg = 0;
 
 images.forEach((element, i) => {
-    const markUpImg = `<img class="${i === activeImg ? 'active' : ''}" src="./assets/${element.image}" alt="${element.title}">`
+    const markUpImg = `<img class="${i === activeImg ? 'active' : ''}" src="./assets/${element.image}" alt="${element.title}">`;
     const markUpCardBody = `
-                    <h5 class="card-title">${element.title}</h5>
-                    <p class="card-text">${element.text}</p>
-                <!-- /.card-body -->`
+                    <h5 class="card-title ${i === activeImg ? 'active' : ''}">${element.title}</h5>
+                    <p class="card-text ${i === activeImg ? 'active' : ''}">${element.text}</p>
+                <!-- /.card-body -->`;
     imageDomEl.innerHTML += markUpImg;
-    cardEl.innerHTML = markUpCardBody;
+    cardEl.innerHTML += markUpCardBody;
 });
 
-const allImgs = document.querySelectorAll('img')
+const allImgs = document.querySelectorAll('img');
+const allTitleImgs = document.querySelectorAll('h5');
+const allTextImgs = document.querySelectorAll('p');
 
 const nextBtnEl = document.getElementById('next');
 nextBtnEl.addEventListener('click', function () {
     let actualImg = allImgs[activeImg];
-    activeImg++
+    let actualTitle = allTitleImgs[activeImg];
+    let actualText = allTextImgs[activeImg];
+
+    activeImg++;
     actualImg.classList.remove('active');
+    actualTitle.classList.remove('active');
+    actualText.classList.remove('active');
 
     if (activeImg > images.length - 1) {
         activeImg = 0;
     }
 
     let nextImg = allImgs[activeImg];
+    let nextTitle = allTitleImgs[activeImg];
+    let nextText = allTextImgs[activeImg];
     nextImg.classList.add('active');
+    nextTitle.classList.add('active');
+    nextText.classList.add('active');
 
     //console.log(activeImg);
 })
@@ -58,15 +69,24 @@ nextBtnEl.addEventListener('click', function () {
 const prevBtnEl = document.getElementById('prev');
 prevBtnEl.addEventListener('click', function () {
     let actualImg = allImgs[activeImg];
-    activeImg--
+    let actualTitle = allTitleImgs[activeImg];
+    let actualText = allTextImgs[activeImg];
+
+    activeImg--;
     actualImg.classList.remove('active');
+    actualTitle.classList.remove('active');
+    actualText.classList.remove('active');
 
     if (activeImg < 0) {
         activeImg = (allImgs.length - 1);
     }
 
     let nextImg = allImgs[activeImg];
+    let nextTitle = allTitleImgs[activeImg];
+    let nextText = allTextImgs[activeImg];
     nextImg.classList.add('active');
+    nextTitle.classList.add('active');
+    nextText.classList.add('active');
 
     //console.log(activeImg);
 })
