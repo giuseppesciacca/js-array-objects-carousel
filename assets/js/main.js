@@ -48,6 +48,32 @@ const allTitleImgs = document.querySelectorAll('h5.jumbo_el');
 const allTextImgs = document.querySelectorAll('p.jumbo_el');
 const allThumbnailsEl = document.querySelectorAll('.thumb_img');
 
+allThumbnailsEl.forEach((element, i) => {
+    element.addEventListener('click', function () {
+        let actualImg = allImgs[activeImg];
+        let actualTitle = allTitleImgs[activeImg];
+        let actualText = allTextImgs[activeImg];
+        let actualThumb = allThumbnailsEl[activeImg];
+
+        actualImg.classList.remove('active');
+        actualTitle.classList.remove('active');
+        actualText.classList.remove('active');
+        actualThumb.classList.remove('active_thumb')
+
+        activeImg = i;
+
+        let nextImg = allImgs[activeImg];
+        let nextTitle = allTitleImgs[activeImg];
+        let nextText = allTextImgs[activeImg];
+        let nextThumb = allThumbnailsEl[activeImg];
+
+        nextImg.classList.add('active');
+        nextTitle.classList.add('active');
+        nextText.classList.add('active');
+        nextThumb.classList.add('active_thumb')
+    })
+})
+
 const nextBtnEl = document.getElementById('next');
 nextBtnEl.addEventListener('click', function () {
     let actualImg = allImgs[activeImg];
