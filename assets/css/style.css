@@ -11,11 +11,13 @@ img.jumbo_el {
 #prev {
     top: 50%;
     left: 2%;
+    z-index: 1;
 }
 
 #next {
     top: 50%;
     right: 2%;
+    z-index: 1;
 }
 
 #thumbnails .row {
@@ -27,5 +29,14 @@ img.jumbo_el {
     width: 100%;
     max-height: 120px;
     object-fit: cover;
-    opacity: 0.5;
+    opacity: 0.3;
+}
+
+#thumbnails img:hover {
+    scale: 1.1;
+    opacity: 1;
+}
+
+.active_thumb {
+    opacity: 1 !important;
 }

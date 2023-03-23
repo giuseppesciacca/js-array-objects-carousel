@@ -35,7 +35,7 @@ images.forEach((element, i) => {
                     <p class="jumbo_el card-text ${i === activeImg ? 'active' : ''}">${element.text}</p>`;
     const thumbsImgMarkUp = `                        
                     <div class="col-auto">
-                        <img src="./assets/${element.image}" alt="${element.title}">
+                        <img class="thumb_img ${i === activeImg ? 'active_thumb' : ''}" src="./assets/${element.image}" alt="${element.title}">
                     </div>`;
     imageDomEl.innerHTML += markUpImg;
     cardEl.innerHTML += markUpCardBody;
@@ -46,17 +46,20 @@ images.forEach((element, i) => {
 const allImgs = document.querySelectorAll('img.jumbo_el');
 const allTitleImgs = document.querySelectorAll('h5.jumbo_el');
 const allTextImgs = document.querySelectorAll('p.jumbo_el');
+const allThumbnailsEl = document.querySelectorAll('.thumb_img');
 
 const nextBtnEl = document.getElementById('next');
 nextBtnEl.addEventListener('click', function () {
     let actualImg = allImgs[activeImg];
     let actualTitle = allTitleImgs[activeImg];
     let actualText = allTextImgs[activeImg];
+    let actualThumb = allThumbnailsEl[activeImg];
 
     activeImg++;
     actualImg.classList.remove('active');
     actualTitle.classList.remove('active');
     actualText.classList.remove('active');
+    actualThumb.classList.remove('active_thumb')
 
     if (activeImg > images.length - 1) {
         activeImg = 0;
@@ -65,9 +68,12 @@ nextBtnEl.addEventListener('click', function () {
     let nextImg = allImgs[activeImg];
     let nextTitle = allTitleImgs[activeImg];
     let nextText = allTextImgs[activeImg];
+    let nextThumb = allThumbnailsEl[activeImg];
+
     nextImg.classList.add('active');
     nextTitle.classList.add('active');
     nextText.classList.add('active');
+    nextThumb.classList.add('active_thumb')
 
     //console.log(activeImg);
 })
@@ -77,11 +83,13 @@ prevBtnEl.addEventListener('click', function () {
     let actualImg = allImgs[activeImg];
     let actualTitle = allTitleImgs[activeImg];
     let actualText = allTextImgs[activeImg];
+    let actualThumb = allThumbnailsEl[activeImg];
 
     activeImg--;
     actualImg.classList.remove('active');
     actualTitle.classList.remove('active');
     actualText.classList.remove('active');
+    actualThumb.classList.remove('active_thumb')
 
     if (activeImg < 0) {
         activeImg = (allImgs.length - 1);
@@ -90,9 +98,12 @@ prevBtnEl.addEventListener('click', function () {
     let nextImg = allImgs[activeImg];
     let nextTitle = allTitleImgs[activeImg];
     let nextText = allTextImgs[activeImg];
+    let nextThumb = allThumbnailsEl[activeImg];
+
     nextImg.classList.add('active');
     nextTitle.classList.add('active');
     nextText.classList.add('active');
+    nextThumb.classList.add('active_thumb')
 
     //console.log(activeImg);
 })
