@@ -133,3 +133,35 @@ prevBtnEl.addEventListener('click', function () {
 
     //console.log(activeImg);
 })
+
+const playBtnEl = document.getElementById('play')
+playBtnEl.addEventListener('click', function () {
+    console.log('click');
+    setInterval(() => {
+        let actualImg = allImgs[activeImg];
+        let actualTitle = allTitleImgs[activeImg];
+        let actualText = allTextImgs[activeImg];
+        let actualThumb = allThumbnailsEl[activeImg];
+
+        activeImg++;
+        actualImg.classList.remove('active');
+        actualTitle.classList.remove('active');
+        actualText.classList.remove('active');
+        actualThumb.classList.remove('active_thumb')
+
+        if (activeImg > images.length - 1) {
+            activeImg = 0;
+        }
+
+        let nextImg = allImgs[activeImg];
+        let nextTitle = allTitleImgs[activeImg];
+        let nextText = allTextImgs[activeImg];
+        let nextThumb = allThumbnailsEl[activeImg];
+
+        nextImg.classList.add('active');
+        nextTitle.classList.add('active');
+        nextText.classList.add('active');
+        nextThumb.classList.add('active_thumb')
+
+    }, 3000);
+})
