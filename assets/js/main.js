@@ -24,7 +24,7 @@ const images = [
 
 const imageDomEl = document.querySelector('.image');
 const cardEl = document.querySelector('.card-body');
-const thumbnailsEl = document.getElementById('thumbnails');
+const thumbnailsEl = document.querySelector('.thumbnails');
 
 let activeImg = 0;
 
@@ -32,25 +32,20 @@ images.forEach((element, i) => {
     const markUpImg = `<img class="jumbo_el ${i === activeImg ? 'active' : ''}" src="./assets/${element.image}" alt="${element.title}">`;
     const markUpCardBody = `
                     <h5 class="jumbo_el card-title ${i === activeImg ? 'active' : ''}">${element.title}</h5>
-                    <p class="jumbo_el card-text ${i === activeImg ? 'active' : ''}">${element.text}</p>
-                <!-- /.card-body -->`;
+                    <p class="jumbo_el card-text ${i === activeImg ? 'active' : ''}">${element.text}</p>`;
     const thumbsImgMarkUp = `                        
-                        <div class="container">
-                            <div class="row position-absolute flex-column">
-                                <div class="col-5">
-                                    <img src="./assets/${element.image}" alt="${element.title}">
-                                </div>
-                            </div>
-                        </div>`;
+                    <div class="col-auto">
+                        <img src="./assets/${element.image}" alt="${element.title}">
+                    </div>`;
     imageDomEl.innerHTML += markUpImg;
     cardEl.innerHTML += markUpCardBody;
     thumbnailsEl.innerHTML += thumbsImgMarkUp;
-    console.log(thumbnailsEl.innerHTML += thumbsImgMarkUp);
 });
 
-const allImgs = document.querySelectorAll('img');
-const allTitleImgs = document.querySelectorAll('h5');
-const allTextImgs = document.querySelectorAll('p');
+/* EVENTI PER CAMBIARE IMMAGINI E TESTI CON CLICK */
+const allImgs = document.querySelectorAll('img.jumbo_el');
+const allTitleImgs = document.querySelectorAll('h5.jumbo_el');
+const allTextImgs = document.querySelectorAll('p.jumbo_el');
 
 const nextBtnEl = document.getElementById('next');
 nextBtnEl.addEventListener('click', function () {
