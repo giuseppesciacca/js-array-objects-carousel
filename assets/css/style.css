@@ -14,11 +14,20 @@ img.jumbo_el {
     z-index: 1;
 }
 
-#play {
+#container_btn {
     bottom: 2%;
-    left: 57%;
+    left: 50%;
     z-index: 1;
     transform: translate(-50%, 0);
+}
+
+#play {
+    z-index: 1;
+    width: 70px;
+}
+
+#reverse {
+    z-index: 1;
     width: 70px;
 }
 
@@ -27,14 +36,6 @@ img.jumbo_el {
     left: 50%;
     z-index: 1;
     transform: translate(-50%, 0);
-}
-
-#reverse {
-    bottom: 2%;
-    left: 45%;
-    z-index: 1;
-    transform: translate(-50%, 0);
-    width: 70px;
 }
 
 #next {
@@ -67,20 +68,6 @@ img.jumbo_el {
 @media screen and (max-width: 991.98px) {
     #thumbnails img {
         display: none;
-    }
-
-    #reverse {
-        bottom: 2%;
-        left: 30%;
-        z-index: 1;
-        width: 70px;
-    }
-
-    #play {
-        bottom: 2%;
-        right: 35%;
-        z-index: 1;
-        width: 70px;
     }
 
     #pause {
