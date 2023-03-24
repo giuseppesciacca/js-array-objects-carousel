@@ -16,9 +16,10 @@ img.jumbo_el {
 
 #play {
     bottom: 2%;
-    left: 55%;
+    left: 57%;
     z-index: 1;
     transform: translate(-50%, 0);
+    width: 70px;
 }
 
 #pause {
@@ -33,6 +34,7 @@ img.jumbo_el {
     left: 45%;
     z-index: 1;
     transform: translate(-50%, 0);
+    width: 70px;
 }
 
 #next {
@@ -71,12 +73,14 @@ img.jumbo_el {
         bottom: 2%;
         left: 30%;
         z-index: 1;
+        width: 70px;
     }
 
     #play {
         bottom: 2%;
         right: 35%;
         z-index: 1;
+        width: 70px;
     }
 
     #pause {
